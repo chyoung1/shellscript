@@ -1,0 +1,5 @@
+#!/bin/sh
+
+series=$(du --max-depth=1  ~/MassStorage/Series/) 
+choosenseries=$(echo "$series" | cut -f2- | dmenu -i -l 30 -p  "Selecione para Assistir")
+du -a ${choosenseries} | cut -f2- | grep 'mp4$\|avi$\|mkv$' | dmenu -i -l 30 | xargs -I {} sh -c "OpenSubtitlesDownload.py --auto '{}' && vlc --fullscreen '{}'"

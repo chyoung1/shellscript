@@ -1,0 +1,5 @@
+#!/bin/sh
+
+x="$(xclip -o)"
+
+xterm -e deemix "$x"

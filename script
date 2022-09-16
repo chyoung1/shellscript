@@ -1,0 +1,16 @@
+#!/bin/bash
+foreground=$(cat ~/.cache/wal/colors.Xresources | grep "\*.color15" | cut -d " " -f 2)
+foreground2=$(cat ~/.cache/wal/colors.Xresources | grep "\*.color5" | cut -d " " -f 2)
+background=$(cat ~/.cache/wal/colors.Xresources | grep "\*.color0" | cut -d " " -f 2)
+
+sed -i '/theme.fg_normal/d' ~/.config/awesome/themes/zenburn/theme.lua
+sed -i "18i theme.fg_normal = '$foreground'" ~/.config/awesome/themes/zenburn/theme.lua
+sed -i '/theme.fg_focus/d' ~/.config/awesome/themes/zenburn/theme.lua
+sed -i "18i theme.fg_focus = '$foreground2'" ~/.config/awesome/themes/zenburn/theme.lua
+sed -i '/theme.bg_normal/d' ~/.config/awesome/themes/zenburn/theme.lua
+sed -i "18i theme.bg_normal = '$background'" ~/.config/awesome/themes/zenburn/theme.lua
+sed -i '/theme.bg_systray/d' ~/.config/awesome/themes/zenburn/theme.lua
+sed -i "18i theme.bg_systray = '$background'" ~/.config/awesome/themes/zenburn/theme.lua
+sed -i '/theme.bg_focus/d' ~/.config/awesome/themes/zenburn/theme.lua
+sed -i "18i theme.bg_focus = '$background'" ~/.config/awesome/themes/zenburn/theme.lua
+
